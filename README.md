@@ -62,5 +62,7 @@ rateWidget(),
 ## Supported Currencies
 Exactly what openexchangerates supports. This includes a few cryptocurrencies. For more info, see https://docs.openexchangerates.org/docs/alternative-currencies.
 
+Note that these values only update hourly (to avoid hitting the api rate limits). This is not suitable for trading purposes
+
 ## Credit
 While not directly following any guides, I did pull from some of the material that Pavel Makhov authored. Check him out at https://github.com/streetturtle/ or https://pavelmakhov.com/.
