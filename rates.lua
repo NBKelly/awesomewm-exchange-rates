@@ -11,6 +11,11 @@ local wibox = require("wibox")
 --  }
 --end
 
+function script_path()
+   local str = debug.getinfo(2, "S").source:sub(2)
+   return str:match("(.*/)")
+end
+
 function rateWidget()
   local function setPrices(widget)
     widget:set_text(widget.prices[widget.price_index])
@@ -34,7 +39,9 @@ function rateWidget()
     --}
   }
 
-  mywidget = awful.widget.watch('bash -c "python3 ~/.config/awesome/rateWidget/rates.py"', 3600,
+  local cmdstr = 'bash -c "python3 '..script_path()..'rates.py"'
+
+  mywidget = awful.widget.watch(cmdstr, 3600,
   	                        function(widget, stdout)
 				  local lines = {}
 				  for s in stdout:gmatch("[^\r\n]+") do
